@@ -13,13 +13,11 @@ test('constructor', function(){
 });
 
 test('adding name', function(){
-  var l = new Likes(ul);
-  l.add('Addy');
+    var l = new Likes(ul);
+    l.add('Addy');
 
-  assert.equal(ul.find('li').length, 1);
-  assert.equal(ul.find('li').first().html(), 'Addy');
-
-  assert.equal(ul.find('li.no-results').length, 0);
-
-})
+    assert.equal(ul.find('li').length, 1);
+    assert.equal(ul.find('li').first().html(), 'Addy');
+    assert.equal(ul.find('li.no-results').length, 0);
+});
 
