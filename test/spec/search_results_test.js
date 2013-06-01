@@ -2,7 +2,7 @@
 'use strict';
 
 suite('Search Results', function(){
-   var ul;
+    var ul;
     var data = {users:[{name: "Addy"}, {name: "Paul"}]};
 
     setup(function(){
