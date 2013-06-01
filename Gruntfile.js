@@ -329,6 +329,7 @@ module.exports = function (grunt) {
         'clean:server',
         'concurrent:test',
         'connect:test',
+        'jst',
         'mocha'
     ]);
 
