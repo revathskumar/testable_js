@@ -7,9 +7,9 @@ var SearchResults = function(el){
 };
 
 SearchResults.prototype.setResults = function(results) {
-    _.bind(this._populate, this, results);
+    this._populate(results);
 };
 
 SearchResults.prototype._populate = function(results) {
-    this.el.html( views.template('search_results.ejs', results));
+    this.el.html( JST['app/scripts/templates/search_results.ejs'](results));
 };
