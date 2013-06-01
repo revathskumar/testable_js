@@ -101,6 +101,9 @@ module.exports = function (grunt) {
         open: {
             server: {
                 path: 'http://localhost:<%= connect.options.port %>'
+            },
+            test: {
+              path: 'http://localhost:<%= connect.options.port %>/index_test.html'
             }
         },
         clean: {
@@ -302,12 +305,22 @@ module.exports = function (grunt) {
             return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
         }
 
+        if (target === 'test'){
+            return grunt.task.run([
+                'clean:server',
+                'concurrent:server',
+                'jst',
+                'open:test', 'connect:test:keepalive', 'watch'
+            ]);
+        }
+
         grunt.task.run([
             'clean:server',
             'concurrent:server',
             'livereload-start',
+            'jst',
             'connect:livereload',
-            'open',
+            'open:server',
             'watch'
         ]);
     });
