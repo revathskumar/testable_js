@@ -10,6 +10,9 @@
     <script src="bower_components/mocha/mocha.js"></script>
     <script src="bower_components/chai/chai.js"></script>
     <script src="bower_components/sinon/lib/sinon.js"></script>
+    <script src="bower_components/sinon/lib/sinon/util/fake_xml_http_request.js"></script>
+    <script src="bower_components/sinon/lib/sinon/util/fake_server.js"></script>
+    <script src="bower_components/sinon/lib/sinon/util/event.js"></script>
     <script>var assert = chai.assert</script>
     <script>mocha.setup('tdd');</script>
 
@@ -24,9 +27,9 @@
 
     <!-- include spec files here... -->
     <script src="spec/likes_test.js"></script>
-    <script src="spec/search_data_test.js"></script>
     <script src="spec/search_results_test.js"></script>
     <script src="spec/search_form_test.js"></script>
+    <script src="spec/search_data_test.js"></script>
 
     <script>mocha.run()</script>
 </body>

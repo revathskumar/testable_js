@@ -1,24 +1,33 @@
 /* global assert, test, suite, setup, $ */
 'use strict';
 
-test('constructor', function(){
-    var searchData = new SearchData();
-    assert(searchData);
-})
+suite('SearchData', function(){
 
-suite("fetch", function(){
-    var xhr, requests;
+    test('constructor', function(){
+        var searchData = new SearchData();
+        assert(searchData);
+    })
 
-    setup(function(){
-        requests = [];
-        xhr = sinon.useFakeXMLHttpRequest();
-        xhr.onCreate(function(request){
-            requests.push(request);
+    suite("fetch", function(){
+        var xhr, requests;
+
+        setup(function(){
+            requests = [];
+            xhr = sinon.useFakeXMLHttpRequest();
+            xhr.onCreate = function(req){
+                requests.push(req);
+            }
+        })
+
+        teardown(function(){
+            xhr.restore();
+        })
+
+        test("fetches from correct url", function() {
+            var searchData = new SearchData();
+            searchData.fetch('cat');
+            console.log(requests);
+            assert.equal(requests, '/data/search.json?q=cat')
         })
     })
-
-    tearDown(function(){
-        xhr.restore();
-    })
-
 })
